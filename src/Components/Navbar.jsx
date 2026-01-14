@@ -15,70 +15,78 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-white border-b border-slate-200 shadow-sm z-50 sticky top-0">
+        <nav className="bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm z-50 sticky top-0">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-20">
-                    <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-                        <div className="shrink-0 flex items-center">
-                            <img src="/logo.jpg" alt="MediScan Logo" className="h-16 w-auto" />
+                <div className="flex justify-between h-16 md:h-20">
+                    <div className="flex items-center cursor-pointer group" onClick={() => navigate('/')}>
+                        <div className="shrink-0 flex items-center gap-2">
+                            <img src="/logo.jpg" alt="MediScan Logo" className="h-10 md:h-14 w-auto rounded-lg" />
+                            <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent hidden xs:block">
+                                MediScan
+                            </span>
                         </div>
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden md:flex items-center gap-4">
+                    <div className="hidden md:flex items-center gap-6">
                         {!user ? (
-                            <Link
-                                to="/login"
-                                className="px-6 py-2 text-sm font-medium bg-green-600 text-white rounded-full hover:bg-green-700 transition shadow-sm"
-                            >
-                                Login / Register
-                            </Link>
+                            <>
+                                <Link to="/" className="text-sm font-medium text-slate-600 hover:text-green-600 transition">Home</Link>
+                                <Link
+                                    to="/login"
+                                    className="px-6 py-2.5 text-sm font-bold bg-green-600 text-white rounded-xl hover:bg-green-700 transition shadow-md hover:shadow-lg"
+                                >
+                                    Login / Register
+                                </Link>
+                            </>
                         ) : (
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-6">
                                 {user.role === 'patient' && user.plan === 'premium' && (
-                                    <span className="bg-slate-100 text-yellow-600 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 border border-yellow-200">
-                                        <i className="fa-solid fa-crown"></i> Pro Member
+                                    <span className="bg-amber-50 text-amber-600 text-[10px] font-black px-3 py-1 rounded-full flex items-center gap-1 border border-amber-200 uppercase tracking-tighter">
+                                        <i className="fa-solid fa-crown"></i> Pro
                                     </span>
                                 )}
 
                                 <Link
                                     to={getDashboardLink()}
-                                    className="px-3 py-2 text-sm font-medium text-slate-500 flex items-center gap-2 hover:text-green-600"
+                                    className="text-sm font-medium text-slate-600 hover:text-green-600 transition flex items-center gap-2"
                                 >
-                                    {user.profileImage ? (
-                                        <img
-                                            src={user.profileImage}
-                                            alt="Profile"
-                                            className="w-8 h-8 rounded-full object-cover border border-slate-200"
-                                        />
-                                    ) : (
-                                        <i
-                                            className={`fa-solid ${user.role === 'admin'
-                                                ? 'fa-shield-halved'
-                                                : user.role === 'doctor'
-                                                    ? 'fa-user-doctor'
-                                                    : 'fa-circle-user'
-                                                } text-xl`}
-                                        ></i>
-                                    )}
+                                    Dashboard
                                 </Link>
 
-                                <Link
-                                    to="/profile"
-                                    className="px-3 py-2 text-sm font-medium text-slate-500 flex items-center gap-2 hover:text-blue-600"
-                                >
-                                    <i className="fa-solid fa-gear"></i>
-                                </Link>
+                                <div className="h-6 w-[1px] bg-slate-200"></div>
 
-                                <button
-                                    onClick={() => {
-                                        logout();
-                                        navigate('/');
-                                    }}
-                                    className="px-4 py-2 text-sm font-medium text-red-500 hover:bg-red-50 rounded-lg transition"
-                                >
-                                    Logout
-                                </button>
+                                <div className="flex items-center gap-4">
+                                    <Link
+                                        to="/profile"
+                                        className="flex items-center gap-3 group"
+                                    >
+                                        <div className="relative">
+                                            {user.profileImage ? (
+                                                <img
+                                                    src={user.profileImage}
+                                                    alt="Profile"
+                                                    className="w-10 h-10 rounded-full object-cover border-2 border-slate-100 group-hover:border-blue-400 transition"
+                                                />
+                                            ) : (
+                                                <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600 transition">
+                                                    <i className={`fa-solid ${user.role === 'admin' ? 'fa-shield-halved' : user.role === 'doctor' ? 'fa-user-doctor' : 'fa-circle-user'} text-lg`}></i>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </Link>
+
+                                    <button
+                                        onClick={() => {
+                                            logout();
+                                            navigate('/');
+                                        }}
+                                        className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition"
+                                        title="Logout"
+                                    >
+                                        <i className="fa-solid fa-right-from-bracket text-lg"></i>
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -87,58 +95,82 @@ export default function Navbar() {
                     <div className="flex items-center md:hidden">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
+                            className="inline-flex items-center justify-center p-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-colors focus:outline-none"
                         >
                             <span className="sr-only">Open main menu</span>
-                            <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
+                            <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.5 relative">
+                                <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                                <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                                <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                            </div>
                         </button>
                     </div>
                 </div>
             </div>
 
             {/* Mobile Menu */}
-            {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-slate-200">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        {!user ? (
+            <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-slate-100 bg-white ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
+                <div className="px-4 pt-4 pb-6 space-y-3">
+                    {!user ? (
+                        <div className="space-y-3">
+                            <Link
+                                to="/"
+                                className="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 active:bg-slate-100 transition"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <i className="fa-solid fa-house mr-3 text-slate-400"></i> Home
+                            </Link>
                             <Link
                                 to="/login"
-                                className="block w-full text-center px-6 py-3 text-base font-medium bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                                className="block w-full text-center px-6 py-3.5 text-base font-bold bg-green-600 text-white rounded-xl hover:bg-green-700 transition shadow-lg shadow-green-200"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Login / Register
                             </Link>
-                        ) : (
-                            <div className="space-y-2">
-                                <Link
-                                    to={getDashboardLink()}
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-green-600 hover:bg-slate-50"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Dashboard
-                                </Link>
-                                <Link
-                                    to="/profile"
-                                    className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Settings
-                                </Link>
-                                <button
-                                    onClick={() => {
-                                        logout();
-                                        navigate('/');
-                                        setIsMenuOpen(false);
-                                    }}
-                                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-500 hover:bg-red-50"
-                                >
-                                    Logout
-                                </button>
+                        </div>
+                    ) : (
+                        <div className="space-y-2">
+                            <div className="flex items-center gap-3 px-4 py-3 mb-2 bg-slate-50 rounded-2xl">
+                                {user.profileImage ? (
+                                    <img src={user.profileImage} alt="" className="w-10 h-10 rounded-full border border-slate-200" />
+                                ) : (
+                                    <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-400">
+                                        <i className="fa-solid fa-user"></i>
+                                    </div>
+                                )}
+                                <div>
+                                    <div className="text-sm font-bold text-slate-900">{user.role.charAt(0).toUpperCase() + user.role.slice(1)}</div>
+                                    <div className="text-[10px] text-slate-500 uppercase tracking-wider">{user.plan || 'Free'} Plan</div>
+                                </div>
                             </div>
-                        )}
-                    </div>
+                            <Link
+                                to={getDashboardLink()}
+                                className="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 active:bg-slate-100 transition"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <i className="fa-solid fa-chart-line mr-3 text-slate-400"></i> Dashboard
+                            </Link>
+                            <Link
+                                to="/profile"
+                                className="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 active:bg-slate-100 transition"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <i className="fa-solid fa-user-gear mr-3 text-slate-400"></i> Settings
+                            </Link>
+                            <button
+                                onClick={() => {
+                                    logout();
+                                    navigate('/');
+                                    setIsMenuOpen(false);
+                                }}
+                                className="block w-full text-left px-4 py-3 rounded-xl text-base font-medium text-red-500 hover:bg-red-50 active:bg-red-100 transition mt-4"
+                            >
+                                <i className="fa-solid fa-right-from-bracket mr-3"></i> Logout
+                            </button>
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
         </nav>
     );
 }
