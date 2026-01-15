@@ -1,18 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
-import Navbar from './Components/NavBar';
+import Navbar from './Components/Navbar';
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import PatientDashboard from './pages/PatientDashboard';
-import DoctorDashboard from './pages/DoctorDashboard';
-import AdminDashboard from './pages/AdminDashboard';
-import Analysis from './pages/Analysis';
-import Profile from './pages/Profile';
-import Membership from './pages/Membership';
-import CheckReports from './pages/CheckReports';
-import DoctorReview from './pages/DoctorReview';
+import About from './pages/About';
+import PatientLogin from './pages/Patient/PatientLogin';
+import PatientSignup from './pages/Patient/PatientSignup';
+import DoctorLogin from './pages/Doctor/DoctorLogin';
+import DoctorSignup from './pages/Doctor/DoctorSignup';
 import './App.css';
 
 function App() {
@@ -24,16 +19,11 @@ function App() {
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/dashboard" element={<PatientDashboard />} />
-              <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
-              <Route path="/admin-dashboard" element={<AdminDashboard />} />
-              <Route path="/analysis" element={<Analysis />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/membership" element={<Membership />} />
-              <Route path="/check-reports" element={<CheckReports />} />
-              <Route path="/doctor-review" element={<DoctorReview />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/patient/login" element={<PatientLogin />} />
+              <Route path="/patient/signup" element={<PatientSignup />} />
+              <Route path="/doctor/login" element={<DoctorLogin />} />
+              <Route path="/doctor/signup" element={<DoctorSignup />} />
             </Routes>
           </div>
         </div>

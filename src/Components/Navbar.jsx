@@ -21,7 +21,7 @@ export default function Navbar() {
                     <div className="flex items-center cursor-pointer group" onClick={() => navigate('/')}>
                         <div className="shrink-0 flex items-center gap-2">
                             <img src="/logo.jpg" alt="MediScan Logo" className="h-10 md:h-14 w-auto rounded-lg" />
-                            <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent hidden xs:block">
+                            <span className="text-xl font-bold bg-linear-to-r from-green-600 to-blue-600 bg-clip-text text-transparent hidden xs:block">
                                 MediScan
                             </span>
                         </div>
@@ -32,12 +32,7 @@ export default function Navbar() {
                         {!user ? (
                             <>
                                 <Link to="/" className="text-sm font-medium text-slate-600 hover:text-green-600 transition">Home</Link>
-                                <Link
-                                    to="/login"
-                                    className="px-6 py-2.5 text-sm font-bold bg-green-600 text-white rounded-xl hover:bg-green-700 transition shadow-md hover:shadow-lg"
-                                >
-                                    Login / Register
-                                </Link>
+                                <Link to="/about" className="text-sm font-medium text-slate-600 hover:text-green-600 transition">About Us</Link>
                             </>
                         ) : (
                             <div className="flex items-center gap-6">
@@ -54,7 +49,7 @@ export default function Navbar() {
                                     Dashboard
                                 </Link>
 
-                                <div className="h-6 w-[1px] bg-slate-200"></div>
+                                <div className="h-6 w-px bg-slate-200"></div>
 
                                 <div className="flex items-center gap-4">
                                     <Link
@@ -121,11 +116,11 @@ export default function Navbar() {
                                 <i className="fa-solid fa-house mr-3 text-slate-400"></i> Home
                             </Link>
                             <Link
-                                to="/login"
-                                className="block w-full text-center px-6 py-3.5 text-base font-bold bg-green-600 text-white rounded-xl hover:bg-green-700 transition shadow-lg shadow-green-200"
+                                to="/about"
+                                className="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50 active:bg-slate-100 transition"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Login / Register
+                                <i className="fa-solid fa-circle-info mr-3 text-slate-400"></i> About Us
                             </Link>
                         </div>
                     ) : (
