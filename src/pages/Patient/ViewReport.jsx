@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function ViewReport() {
-  const [reports, setReports] = useState([]);
+  const [reports] = useState([]);
   const [selectedReport, setSelectedReport] = useState(null);
   const [filter, setFilter] = useState('all');
 
@@ -22,41 +22,37 @@ function ViewReport() {
           <div className="flex gap-4">
             <button
               onClick={() => setFilter('all')}
-              className={`px-4 py-2 rounded-lg font-semibold transition ${
-                filter === 'all'
+              className={`px-4 py-2 rounded-lg font-semibold transition ${filter === 'all'
                   ? 'bg-green-600 text-white'
                   : 'bg-white text-slate-700 border border-slate-300'
-              }`}
+                }`}
             >
               All Reports
             </button>
             <button
               onClick={() => setFilter('blood-test')}
-              className={`px-4 py-2 rounded-lg font-semibold transition ${
-                filter === 'blood-test'
+              className={`px-4 py-2 rounded-lg font-semibold transition ${filter === 'blood-test'
                   ? 'bg-green-600 text-white'
                   : 'bg-white text-slate-700 border border-slate-300'
-              }`}
+                }`}
             >
               Blood Tests
             </button>
             <button
               onClick={() => setFilter('x-ray')}
-              className={`px-4 py-2 rounded-lg font-semibold transition ${
-                filter === 'x-ray'
+              className={`px-4 py-2 rounded-lg font-semibold transition ${filter === 'x-ray'
                   ? 'bg-green-600 text-white'
                   : 'bg-white text-slate-700 border border-slate-300'
-              }`}
+                }`}
             >
               X-Rays
             </button>
             <button
               onClick={() => setFilter('prescription')}
-              className={`px-4 py-2 rounded-lg font-semibold transition ${
-                filter === 'prescription'
+              className={`px-4 py-2 rounded-lg font-semibold transition ${filter === 'prescription'
                   ? 'bg-green-600 text-white'
                   : 'bg-white text-slate-700 border border-slate-300'
-              }`}
+                }`}
             >
               Prescriptions
             </button>

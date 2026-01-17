@@ -29,7 +29,7 @@ function UploadReport() {
       setFile(null);
       setReportType('');
       setDate('');
-    } catch (error) {
+    } catch {
       alert('Error uploading report. Please try again.');
     } finally {
       setUploading(false);
