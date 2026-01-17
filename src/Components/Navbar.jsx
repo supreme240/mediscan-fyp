@@ -29,9 +29,8 @@ export default function Navbar() {
                         {!user ? (
                             <>
                                 <Link to="/" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Home</Link>
-                                <Link to="/check-reports" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Check Reports</Link>
+                                <Link to="/admin/login" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Admin</Link>
                                 <Link to="/about" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">About Us</Link>
-                                <Link to="/login" className="bg-white text-green-600 px-4 py-2 rounded-full font-bold hover:bg-green-50 transition shadow-md text-sm">Login / Signup</Link>
                             </>
                         ) : (
                             <div className="flex items-center gap-8">
@@ -116,18 +115,11 @@ export default function Navbar() {
                                 <i className="fa-solid fa-house mr-3 text-green-100"></i> Home
                             </Link>
                             <Link
-                                to="/check-reports"
+                                to="/admin/login"
                                 className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-green-400 active:bg-green-700 transition"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                <i className="fa-solid fa-file-medical mr-3 text-green-100"></i> Check Reports
-                            </Link>
-                            <Link
-                                to="/login"
-                                className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-green-400 active:bg-green-700 transition"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                <i className="fa-solid fa-right-to-bracket mr-3 text-green-100"></i> Login / Signup
+                                <i className="fa-solid fa-shield-halved mr-3 text-green-100"></i> Admin
                             </Link>
                             <Link
                                 to="/about"
