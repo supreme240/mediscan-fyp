@@ -17,10 +17,10 @@ export default function Navbar() {
     return (
         <nav className="bg-gradient-to-r from-green-600 to-green-500 backdrop-blur-md border-b border-green-700 shadow-lg z-50 sticky top-0 w-full">
             <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16 md:h-20 px-4">
+                <div className="flex justify-between items-center h-20 md:h-24 px-4">
                     <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
                         <div className="shrink-0 flex items-center">
-                            <img src="/logo.jpg" alt="MediScan Logo" className="h-14 md:h-16 w-auto rounded-lg shadow-sm mix-blend-multiply" />
+                            <img src="/logo.jpg" alt="MediScan Logo" className="h-16 md:h-20 w-auto mix-blend-multiply" />
                         </div>
                     </div>
 
@@ -102,6 +102,7 @@ export default function Navbar() {
                 </div>
             </div>
 
+
             {/* Mobile Menu */}
             <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-green-700 bg-green-500 ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
                 <div className="px-4 pt-4 pb-6 space-y-3">
@@ -179,6 +180,6 @@ export default function Navbar() {
                     )}
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 }

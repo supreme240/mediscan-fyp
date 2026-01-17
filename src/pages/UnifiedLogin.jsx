@@ -25,6 +25,7 @@ export default function UnifiedLogin() {
         <div className="flex-1 min-h-screen bg-slate-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg border border-slate-100">
                 <div className="text-center">
+                    <img src="/logo.jpg" alt="MediScan Logo" className="h-16 w-auto mx-auto mb-4 mix-blend-multiply" />
                     <h2 className="mt-2 text-3xl font-extrabold text-slate-900">
                         Welcome Back
                     </h2>
@@ -37,8 +38,8 @@ export default function UnifiedLogin() {
                     <button
                         onClick={() => handleRoleChange('patient')}
                         className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${role === 'patient'
-                                ? 'bg-white text-green-600 shadow-sm'
-                                : 'text-slate-500 hover:text-slate-700'
+                            ? 'bg-white text-green-600 shadow-sm'
+                            : 'text-slate-500 hover:text-slate-700'
                             }`}
                     >
                         Patient
@@ -46,8 +47,8 @@ export default function UnifiedLogin() {
                     <button
                         onClick={() => handleRoleChange('doctor')}
                         className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${role === 'doctor'
-                                ? 'bg-white text-blue-600 shadow-sm'
-                                : 'text-slate-500 hover:text-slate-700'
+                            ? 'bg-white text-blue-600 shadow-sm'
+                            : 'text-slate-500 hover:text-slate-700'
                             }`}
                     >
                         Doctor
@@ -55,8 +56,8 @@ export default function UnifiedLogin() {
                     <button
                         onClick={() => handleRoleChange('admin')}
                         className={`flex-1 py-2 text-sm font-medium rounded-md transition-all ${role === 'admin'
-                                ? 'bg-white text-purple-600 shadow-sm'
-                                : 'text-slate-500 hover:text-slate-700'
+                            ? 'bg-white text-purple-600 shadow-sm'
+                            : 'text-slate-500 hover:text-slate-700'
                             }`}
                     >
                         Admin

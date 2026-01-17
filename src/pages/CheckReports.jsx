@@ -166,7 +166,7 @@ export default function CheckReports() {
                                         </button>
                                         <button
                                             onClick={startCamera}
-                                            className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg"
+                                            className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg lg:hidden"
                                         >
                                             <i className="fa-solid fa-camera mr-2"></i> Take Photo
                                         </button>

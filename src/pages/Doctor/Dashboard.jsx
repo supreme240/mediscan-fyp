@@ -1,7 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 function DoctorDashboard() {
+    const location = useLocation();
+    const [welcomeMessage, setWelcomeMessage] = useState('');
+
+    useEffect(() => {
+        if (location.state?.welcomeMessage) {
+            setWelcomeMessage(location.state.welcomeMessage);
+            const timer = setTimeout(() => setWelcomeMessage(''), 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [location.state]);
+
     const stats = [
         { label: 'Today\'s Appointments', value: '8', icon: 'fa-calendar-check', color: 'bg-blue-500' },
         { label: 'Pending Reports', value: '12', icon: 'fa-file-medical', color: 'bg-orange-500' },
@@ -12,6 +23,20 @@ function DoctorDashboard() {
     return (
         <div className="flex-1 min-h-screen bg-slate-50 px-4 py-8">
             <div className="max-w-7xl mx-auto">
+                {welcomeMessage && (
+                    <div className="mb-6 bg-blue-100 border border-blue-200 text-blue-800 px-4 py-3 rounded-xl flex items-center justify-between animate-fade-in shadow-sm">
+                        <div className="flex items-center gap-3">
+                            <span className="bg-blue-200 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center">
+                                <i className={`fa-solid ${welcomeMessage.includes('Back') ? 'fa-user-doctor' : 'fa-hand-holding-medical'}`}></i>
+                            </span>
+                            <span className="font-semibold">{welcomeMessage}</span>
+                        </div>
+                        <button onClick={() => setWelcomeMessage('')} className="text-blue-600 hover:text-blue-800">
+                            <i className="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                )}
+
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-slate-900 mb-2">Doctor Dashboard</h1>
                     <p className="text-slate-600">Welcome back, Dr. Sharma</p>

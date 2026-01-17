@@ -9,6 +9,7 @@ import CheckReports from './pages/CheckReports';
 import Analysis from './pages/Analysis';
 import UnifiedLogin from './pages/UnifiedLogin';
 import UnifiedSignup from './pages/UnifiedSignup';
+import Profile from './pages/Profile';
 import PatientLogin from './pages/Patient/PatientLogin';
 import PatientSignup from './pages/Patient/PatientSignup';
 import PatientDashboard from './pages/Patient/Dashboard';
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/signup" element={<UnifiedSignup />} />
                 <Route path="/check-reports" element={<CheckReports />} />
                 <Route path="/analysis" element={<Analysis />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/patient/login" element={<PatientLogin />} />
                 <Route path="/patient/signup" element={<PatientSignup />} />

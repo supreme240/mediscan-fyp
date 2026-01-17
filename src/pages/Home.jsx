@@ -6,6 +6,7 @@ export default function Home() {
     <div className="flex-1 min-h-screen flex items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-2xl">
         <div className="text-center mb-8">
+          <img src="/logo.jpg" alt="MediScan Logo" className="h-20 w-auto mx-auto mb-6 mix-blend-multiply" />
           <div className="inline-block p-2 rounded-full bg-green-100 text-green-600 mb-4 text-[10px] md:text-xs font-bold tracking-wide uppercase">
             AI-Powered Healthcare
           </div>

@@ -78,6 +78,7 @@ function AdminLogin({ isEmbedded = false }) {
     <div className="flex-1 min-h-screen flex items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
+          <img src="/logo.jpg" alt="MediScan Logo" className="h-16 w-auto mx-auto mb-4 mix-blend-multiply" />
           <h1 className="text-3xl font-bold text-slate-900 mb-2">Admin Login</h1>
           <p className="text-slate-600">Access your admin dashboard</p>
         </div>
