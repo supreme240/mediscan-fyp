@@ -15,13 +15,13 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-gradient-to-r from-green-600 to-green-500 backdrop-blur-md border-b-2 border-green-700 shadow-lg z-50 sticky top-0">
+        <nav className="bg-gradient-to-r from-green-600 to-green-500 backdrop-blur-md border-b-2 border-green-700 shadow-lg z-50 sticky top-0 rounded-3xl m-4 mt-8">
             <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 md:h-20">
-                    <div className="flex items-center cursor-pointer group pl-0 hover:opacity-80 transition" onClick={() => navigate('/')}>
-                        <div className="shrink-0 flex items-center gap-3">
-                            <img src="/logo.jpg" alt="MediScan Logo" className="h-16 md:h-20 w-auto rounded-r-lg shadow-md" />
-                            <span className="text-2xl font-bold text-white hidden xs:block tracking-tight">
+                    <div className="flex items-center cursor-pointer group pl-0 hover:opacity-80 transition -ml-24 pt-2" onClick={() => navigate('/')}>
+                        <div className="shrink-0 flex items-center gap-0">
+                            <img src="/logo.jpg" alt="MediScan Logo" className="h-15 md:h-20 w-auto rounded-3xl shadow-md" />
+                            <span className="text-2xl font-bold text-white hidden xs:block tracking-tight ml-3">
                                 MediScan
                             </span>
                         </div>
@@ -32,6 +32,7 @@ export default function Navbar() {
                         {!user ? (
                             <>
                                 <Link to="/" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Home</Link>
+                                <Link to="/admin/login" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Admin</Link>
                                 <Link to="/about" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">About Us</Link>
                             </>
                         ) : (
@@ -114,6 +115,13 @@ export default function Navbar() {
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 <i className="fa-solid fa-house mr-3 text-green-100"></i> Home
+                            </Link>
+                            <Link
+                                to="/admin/login"
+                                className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-green-400 active:bg-green-700 transition"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <i className="fa-solid fa-shield-halved mr-3 text-green-100"></i> Admin
                             </Link>
                             <Link
                                 to="/about"

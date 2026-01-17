@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 function PatientLogin() {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,7 +18,13 @@ function PatientLogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Patient Login:', formData);
-    // Add login logic here
+    // Add login logic here - after successful login:
+    login({
+      email: formData.email,
+      role: 'patient',
+      // Add other user data from API response
+    });
+    navigate('/patient/dashboard');
   };
 
   return (

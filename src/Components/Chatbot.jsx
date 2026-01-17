@@ -146,7 +146,7 @@ export default function Chatbot() {
 
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`${isPremium ? 'bg-gradient-to-r from-blue-600 to-indigo-600' : 'bg-slate-700'
+                className={`${isPremium ? 'bg-linear-to-r from-blue-600 to-indigo-600' : 'bg-slate-700'
                     } hover:opacity-90 text-white rounded-full w-14 h-14 shadow-lg flex items-center justify-center transition-transform hover:scale-105`}
             >
                 <i className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-message'} text-2xl`}></i>
