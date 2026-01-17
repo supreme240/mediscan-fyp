@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function HealthDashboard() {
-  const [healthMetrics, setHealthMetrics] = useState({
+  const [healthMetrics] = useState({
     bloodPressure: { systolic: 120, diastolic: 80 },
     heartRate: 72,
     temperature: 98.6,

@@ -9,21 +9,18 @@ export default function Navbar() {
 
     const getDashboardLink = () => {
         if (!user) return '/';
-        if (user.role === 'admin') return '/admin-dashboard';
-        if (user.role === 'doctor') return '/doctor-dashboard';
-        return '/dashboard';
+        if (user.role === 'admin') return '/admin/dashboard';
+        if (user.role === 'doctor') return '/doctor/dashboard';
+        return '/patient/dashboard';
     };
 
     return (
-        <nav className="bg-gradient-to-r from-green-600 to-green-500 backdrop-blur-md border-b-2 border-green-700 shadow-lg z-50 sticky top-0 rounded-3xl m-4 mt-8">
+        <nav className="bg-gradient-to-r from-green-600 to-green-500 backdrop-blur-md border-b border-green-700 shadow-lg z-50 sticky top-0 w-full">
             <div className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16 md:h-20">
-                    <div className="flex items-center cursor-pointer group pl-0 hover:opacity-80 transition -ml-24 pt-2" onClick={() => navigate('/')}>
-                        <div className="shrink-0 flex items-center gap-0">
-                            <img src="/logo.jpg" alt="MediScan Logo" className="h-15 md:h-20 w-auto rounded-3xl shadow-md" />
-                            <span className="text-2xl font-bold text-white hidden xs:block tracking-tight ml-3">
-                                MediScan
-                            </span>
+                <div className="flex justify-between items-center h-20 md:h-24 px-4">
+                    <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
+                        <div className="shrink-0 flex items-center">
+                            <img src="/logo.jpg" alt="MediScan Logo" className="h-16 md:h-20 w-auto mix-blend-multiply" />
                         </div>
                     </div>
 
@@ -32,8 +29,9 @@ export default function Navbar() {
                         {!user ? (
                             <>
                                 <Link to="/" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Home</Link>
-                                <Link to="/admin/login" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Admin</Link>
+                                <Link to="/check-reports" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">Check Reports</Link>
                                 <Link to="/about" className="text-sm font-semibold text-white hover:text-green-100 transition duration-200">About Us</Link>
+                                <Link to="/login" className="bg-white text-green-600 px-4 py-2 rounded-full font-bold hover:bg-green-50 transition shadow-md text-sm">Login / Signup</Link>
                             </>
                         ) : (
                             <div className="flex items-center gap-8">
@@ -104,6 +102,7 @@ export default function Navbar() {
                 </div>
             </div>
 
+
             {/* Mobile Menu */}
             <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-green-700 bg-green-500 ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
                 <div className="px-4 pt-4 pb-6 space-y-3">
@@ -117,11 +116,18 @@ export default function Navbar() {
                                 <i className="fa-solid fa-house mr-3 text-green-100"></i> Home
                             </Link>
                             <Link
-                                to="/admin/login"
+                                to="/check-reports"
                                 className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-green-400 active:bg-green-700 transition"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                <i className="fa-solid fa-shield-halved mr-3 text-green-100"></i> Admin
+                                <i className="fa-solid fa-file-medical mr-3 text-green-100"></i> Check Reports
+                            </Link>
+                            <Link
+                                to="/login"
+                                className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-green-400 active:bg-green-700 transition"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <i className="fa-solid fa-right-to-bracket mr-3 text-green-100"></i> Login / Signup
                             </Link>
                             <Link
                                 to="/about"
@@ -174,6 +180,6 @@ export default function Navbar() {
                     )}
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 }
