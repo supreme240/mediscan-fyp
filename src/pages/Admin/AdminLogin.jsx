@@ -70,7 +70,7 @@ function AdminLogin() {
 
           <button
             type="submit"
-            className="w-full bg-purple-600 text-white font-bold py-2 rounded-lg hover:bg-purple-700 transition"
+            className="w-full bg-green-500 text-white font-bold py-2 rounded-lg hover:bg-purple-700 transition"
           >
             Login
           </button>
