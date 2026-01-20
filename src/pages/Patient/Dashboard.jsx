@@ -37,13 +37,6 @@ function Dashboard() {
       icon: 'fa-folder-open',
       link: '/patient/view-report',
       color: 'from-green-500 to-green-600'
-    },
-    {
-      title: 'Chat with Doctor',
-      description: 'Connect with healthcare professionals',
-      icon: 'fa-comments',
-      link: '/patient/chat',
-      color: 'from-purple-500 to-purple-600'
     }
   ];
 

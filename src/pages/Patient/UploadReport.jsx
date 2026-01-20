@@ -115,12 +115,6 @@ function UploadReport() {
             >
               <option value="">Select report type</option>
               <option value="blood-test">Blood Test</option>
-              <option value="x-ray">X-Ray</option>
-              <option value="ct-scan">CT Scan</option>
-              <option value="mri">MRI</option>
-              <option value="ultrasound">Ultrasound</option>
-              <option value="prescription">Prescription</option>
-              <option value="other">Other</option>
             </select>
             {errors.reportType && (
               <p className="mt-1 text-sm text-red-600">{errors.reportType}</p>

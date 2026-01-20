@@ -17,10 +17,8 @@ function ViewReport() {
   const getReportTypeIcon = (type) => {
     const icons = {
       'blood-test': 'fa-vial',
-      'x-ray': 'fa-x-ray',
       'ct-scan': 'fa-image',
       'mri': 'fa-magnet',
-      'prescription': 'fa-prescription',
       'other': 'fa-file-medical'
     };
     return icons[type] || 'fa-file-medical';
@@ -75,7 +73,7 @@ function ViewReport() {
             />
           </div>
           <div className="flex flex-wrap gap-3">
-            {['all', 'blood-test', 'x-ray', 'prescription'].map((filterType) => (
+            {['all', 'blood-test'].map((filterType) => (
               <button
                 key={filterType}
                 onClick={() => setFilter(filterType)}
